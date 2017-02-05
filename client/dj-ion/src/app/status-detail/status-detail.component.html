@@ -1,0 +1,18 @@
+<h1>
+  {{ detailId }}
+</h1>
+
+<div *ngIf='statusItem'>
+    <p *ngIf='statusItem.image'><img class='img-detail-max' [src]='statusItem.image' /></p>
+    <p>{{ statusItem.content }}</p>
+    <p>via <b>{{ statusItem.user.username }}</b></p>
+</div>
+
+
+
+<!-- <status-update *ngIf='statusItem' [statusItem]='statusItem' (statusUpdated)='statusDidUpdate($event)'></status-update> -->
+
+<status-action *ngIf='statusItem' [statusItemToUpdate]='statusItem' (statusUpdated)='statusDidUpdate($event, statusItem)'></status-action>
+
+
+<button (click)='goBack()'>Back</button>
